@@ -2,16 +2,11 @@
   <div id="app">
     <h1>Testing json-as-xlsx</h1>
     <button @click="downloadFile">Download</button>
-    <h2>
-      <span>Visit this project on: </span>
-      <a href="https://github.com/LuisEnMarroquin/json-as-xlsx" target="_blank">GitHub</a>
-    </h2>
   </div>
 </template>
 
 <script>
 import xlsx from 'json-as-xlsx'
-
 export default {
   name: 'App',
   methods: {
@@ -37,21 +32,12 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 button {
   background-color: #008CBA;
-  border: none;
-  color: white;
   padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
   font-size: 16px;
+  color: white;
 }
 </style>
