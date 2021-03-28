@@ -1,0 +1,57 @@
+<template>
+  <div id="app">
+    <h1>Testing json-as-xlsx</h1>
+    <button @click="downloadFile">Download</button>
+    <h2>
+      <span>Visit this project on: </span>
+      <a href="https://github.com/LuisEnMarroquin/json-as-xlsx" target="_blank">GitHub</a>
+    </h2>
+  </div>
+</template>
+
+<script>
+import xlsx from 'json-as-xlsx'
+
+export default {
+  name: 'App',
+  methods: {
+    downloadFile: function () {
+      var columns = [
+        { label: 'User', value: 'user' },
+        { label: 'Age', value: function x(row) { return (row.age + ' years') } },
+        { label: 'Phone', value: function x(row) { return (row.more ? row.more.phone || '' : '') } }
+      ]
+      var content = [
+        { user: 'Ana', age: 16, more: { phone: '11111111' } },
+        { user: 'Luis', age: 19, more: { phone: '12345678' } }
+      ]
+      var settings = {
+        sheetName: 'FirstSheet',
+        fileName: 'MySpreadsheet'
+      }
+      xlsx(columns, content, settings)
+    }
+  }
+}
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+button {
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+</style>
